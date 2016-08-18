@@ -1,6 +1,5 @@
 #include "Appearance.h"
 
-
 Appearance::Appearance(Geometry geometry, Material material) : _geometry(geometry), _material(material)
 {
 	_textureRV = nullptr;
@@ -9,14 +8,13 @@ Appearance::Appearance(Geometry geometry, Material material) : _geometry(geometr
 	_material = material;
 }
 
-
 Appearance::~Appearance()
 {
 }
 
 void Appearance::Draw(ID3D11DeviceContext * pImmediateContext)
 {
-	// NOTE: We are assuming that the constant buffers and all other draw setup has already taken place
+	// NOTE: Assuming that constant buffers and all other draw setup has already taken place
 
 	// Set vertex and index buffers
 	pImmediateContext->IASetVertexBuffers(0, 1, &_geometry.vertexBuffer, &_geometry.vertexBufferStride, &_geometry.vertexBufferOffset);

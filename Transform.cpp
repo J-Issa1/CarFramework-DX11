@@ -1,6 +1,5 @@
 #include "Transform.h"
 
-
 Transform::Transform()
 {
 	_parent = nullptr;

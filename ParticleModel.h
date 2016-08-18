@@ -46,7 +46,7 @@ public:
 	void DragLamFlow();
 	void DragTurbFlow();
 
-	//AI
+	// AI
 	void Move(XMFLOAT3 movement);
 	XMFLOAT3 move;
 	float moveBy;

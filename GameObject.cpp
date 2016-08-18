@@ -15,7 +15,6 @@ GameObject::~GameObject()
 
 void GameObject::Update(float t)
 {
-	//_particleModel->Update(t);
 	_transform->Update(t);
 }
 

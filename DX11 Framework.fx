@@ -3,13 +3,11 @@
 //--------------------------------------------------------------------------------------
 
 Texture2D txDiffuse : register(t0);
-
 SamplerState samLinear : register(s0);
 
 //--------------------------------------------------------------------------------------
 // Constant Buffer Variables
 //--------------------------------------------------------------------------------------
-
 struct SurfaceInfo
 {
 	float4 AmbientMtrl;
@@ -47,7 +45,6 @@ struct VS_INPUT
 	float2 Tex : TEXCOORD0;
 };
 
-//--------------------------------------------------------------------------------------
 struct VS_OUTPUT
 {
     float4 PosH : SV_POSITION;
@@ -94,7 +91,6 @@ float4 PS(VS_OUTPUT input) : SV_Target
 	float3 specular = float3(0.0f, 0.0f, 0.0f);
 
 	float3 lightLecNorm = normalize(light.LightVecW);
-	// Compute Colour
 
 	// Compute the reflection vector.
 	float3 r = reflect(-lightLecNorm, normalW);

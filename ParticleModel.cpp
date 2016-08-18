@@ -131,10 +131,10 @@ void ParticleModel::Update(float t)
 
 void ParticleModel::SlidingForce(float theta, float frCoef)
 {
-	// calculate magnitude of force
+	// Calculate magnitude of force
 	forceMag = _mass * gravity * (sin(theta) - frCoef * cos(theta));
 
-	// calculate x- and y-components of force (note: x-axis assumed positive rightwards and y-axis positive downwards)
+	// Calculate x- and y-components of force (NOTE: x-axis assumed positive rightwards and y-axis positive downwards)
 	slidingForce.x = forceMag * cos(theta);
 	slidingForce.y = forceMag * sin(theta);
 	slidingForce.z = forceMag * cos(theta);
@@ -177,17 +177,17 @@ void ParticleModel::MotionInFluid()
 void ParticleModel::DragForce()
 {
 	if (laminar)
-		// calculate drag force for laminar flow
+		// Calculate drag force for laminar flow
 		DragLamFlow();
 	else
-		// calculate drag force for turbulent flow
+		// Calculate drag force for turbulent flow
 		DragTurbFlow();
 
 }
 
 void ParticleModel::DragLamFlow()
 {
-	// calculate of x- and y-components of drag force
+	// Calculate of x- and y-components of drag force
 	dragForce.x = -dragFactor * _velocity.x;
 	dragForce.y = -dragFactor * _velocity.y;
 	dragForce.z = -dragFactor * _velocity.z;
@@ -195,21 +195,21 @@ void ParticleModel::DragLamFlow()
 
 void ParticleModel::DragTurbFlow()
 {
-	// calculate magnitude of velocity
+	// Calculate magnitude of velocity
 	float velMag;
 	velMag = sqrt((_velocity.x * _velocity.x) + (_velocity.y * _velocity.y) + (_velocity.z * _velocity.z));
 
-	// calculate unit vector/normalised vector of velocity
+	// Calculate unit vector/normalised vector of velocity
 	XMFLOAT3 unitVel;
 	unitVel.x = (_velocity.x / velMag);
 	unitVel.y = (_velocity.y / velMag);
 	unitVel.z = (_velocity.z / velMag);
 
-	// calculate magnitude of drag force
+	// Calculate magnitude of drag force
 	float dragMag;
 	dragMag = dragFactor * velMag * velMag;
 
-	// calculate of x- and y-components of drag force
+	// Calculate of x- and y-components of drag force
 	dragForce.x = -dragMag * unitVel.x;
 	dragForce.y = -dragMag * unitVel.y;
 	dragForce.z = -dragMag * unitVel.z;

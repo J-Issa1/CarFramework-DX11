@@ -829,16 +829,6 @@ void Application::Update(float t)
 		carGameObject->GetTransform()->SetRotation(0.0f, carRotation, 0.0f);
 	}
 
-	//if (carPModel->GetEngineSpeed() == 70.0f)
-	//{
-	//	carPModel->SetEngineSpeed(70.0f);
-	//}
-	//
-	//if (carPModel->GetRPM() >= 6.0f)
-	//{
-	//	carPModel->SetRPM(6.0f);
-	//}
-
 	// TODO: Fix and clean up Gear system.
 	if (GetAsyncKeyState(VK_LSHIFT))
 	{
@@ -970,7 +960,7 @@ void Application::Update(float t)
 	}
 
 	// Resolve Collision between Car and AICar
-	// TODO: Fix Car vs AICar collision, weird glitch happens if they both connect.
+	// TODO: Fix Car vs AICar collision, weird glitch happens if they both collide.
 	if (carGameObject->GetParticleModel()->CheckCollision(aiCar->GetTransform()->GetPosition(), aiCar->GetParticleModel()->GetCollisionRadius()) == true)
 	{
 		carGameObject->GetParticleModel()->ResolveCollision(carGameObject->GetParticleModel(), aiCar->GetParticleModel());
@@ -1025,7 +1015,7 @@ void Application::Draw()
 	for (auto gameObject : _gameObjects)
 	{
 		// Get render material
-		Appearance * appearance = gameObject->GetAppearance();
+		Appearance* appearance = gameObject->GetAppearance();
 		Material material = appearance->GetMaterial();
 
 		// Copy material to shader
@@ -1039,7 +1029,7 @@ void Application::Draw()
 		// Set texture
 		if (appearance->HasTexture())
 		{
-			ID3D11ShaderResourceView * textureRV = appearance->GetTextureRV();
+			ID3D11ShaderResourceView* textureRV = appearance->GetTextureRV();
 			_pImmediateContext->PSSetShaderResources(0, 1, &textureRV);
 			cb.HasTexture = 1.0f;
 		}
@@ -1058,7 +1048,7 @@ void Application::Draw()
 	// -------------------------------------------------------------------------- FLOOR -----------------------------------------------------------
 
 	// Get render material
-	Appearance * appearance = floorGameObject->GetAppearance();
+	Appearance* appearance = floorGameObject->GetAppearance();
 	Material material = appearance->GetMaterial();
 
 	// Copy material to shader
@@ -1072,7 +1062,7 @@ void Application::Draw()
 	// Set texture
 	if (appearance->HasTexture())
 	{
-		ID3D11ShaderResourceView * textureRV = appearance->GetTextureRV();
+		ID3D11ShaderResourceView* textureRV = appearance->GetTextureRV();
 		_pImmediateContext->PSSetShaderResources(0, 1, &textureRV);
 		cb.HasTexture = 1.0f;
 	}
@@ -1091,7 +1081,7 @@ void Application::Draw()
 	// -------------------------------------------------------------------------- TRACK -----------------------------------------------------------
 
 	// Get render material
-	Appearance * trackAppearance = track->GetAppearance();
+	Appearance* trackAppearance = track->GetAppearance();
 	Material trackMaterial = trackAppearance->GetMaterial();
 
 	// Copy material to shader
@@ -1105,7 +1095,7 @@ void Application::Draw()
 	// Set texture
 	if (trackAppearance->HasTexture())
 	{
-		ID3D11ShaderResourceView * trackTextureRV = trackAppearance->GetTextureRV();
+		ID3D11ShaderResourceView* trackTextureRV = trackAppearance->GetTextureRV();
 		_pImmediateContext->PSSetShaderResources(0, 1, &trackTextureRV);
 		cb.HasTexture = 1.0f;
 	}
@@ -1155,7 +1145,7 @@ void Application::Draw()
 
 	// -------------------------------------------------------------------------- CAR -----------------------------------------------------------
 
-	Appearance * carAppearance = carGameObject->GetAppearance();
+	Appearance* carAppearance = carGameObject->GetAppearance();
 	Material carMaterial = carAppearance->GetMaterial();
 
 	// Copy material to shader
@@ -1169,7 +1159,7 @@ void Application::Draw()
 	// Set texture
 	if (carAppearance->HasTexture())
 	{
-		ID3D11ShaderResourceView * _pCarTextureRV = carAppearance->GetTextureRV();
+		ID3D11ShaderResourceView* _pCarTextureRV = carAppearance->GetTextureRV();
 		_pImmediateContext->PSSetShaderResources(0, 1, &_pCarTextureRV);
 		cb.HasTexture = 1.0f;
 	}
@@ -1185,7 +1175,7 @@ void Application::Draw()
 	carGameObject->Draw(_pImmediateContext);
 
 	// -------------------------------------------------------------------------- AI CAR -----------------------------------------------------------
-	Appearance * AICarAppearance = aiCar->GetAppearance();
+	Appearance* AICarAppearance = aiCar->GetAppearance();
 	Material AICarMaterial = AICarAppearance->GetMaterial();
 
 	// Copy material to shader
@@ -1199,7 +1189,7 @@ void Application::Draw()
 	// Set texture
 	if (AICarAppearance->HasTexture())
 	{
-		ID3D11ShaderResourceView * _pAICarTextureRV = AICarAppearance->GetTextureRV();
+		ID3D11ShaderResourceView* _pAICarTextureRV = AICarAppearance->GetTextureRV();
 		_pImmediateContext->PSSetShaderResources(0, 1, &_pAICarTextureRV);
 		cb.HasTexture = 1.0f;
 	}
@@ -1214,7 +1204,7 @@ void Application::Draw()
 	// Draw object
 	aiCar->Draw(_pImmediateContext);
 
-	// -------------------------------------------------- DRAW MOUNTAIN ----------------------------------------------------------------
+	// -------------------------------------------------- MOUNTAIN ----------------------------------------------------------------
 	Appearance* mountainAppearance = mountain->GetAppearance();
 	Material mountainMaterial = mountainAppearance->GetMaterial();
 

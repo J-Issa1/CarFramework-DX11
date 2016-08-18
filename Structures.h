@@ -17,7 +17,6 @@ struct Geometry
 
 	UINT vertexBufferOffset;
 	UINT vertexBufferStride;
-	//UINT IndexCount;
 };
 
 struct Material
