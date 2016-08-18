@@ -51,11 +51,7 @@ public:
 	XMFLOAT3 move;
 	float moveBy;
 
-private:
-	float gravity;
-	float _mass;
-
-	
+private:	
 	XMFLOAT3 _acceleration;
 
 	bool _useConstAcc;
@@ -73,6 +69,9 @@ private:
 	float _radius; 
 
 protected:
+	float gravity;
+	float _mass;
+
 	Transform* _transform;
 
 	XMFLOAT3 _velocity;
