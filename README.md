@@ -6,7 +6,7 @@ Included in the project are:
 
 * Player controlled car.
 * AI controlled car.
-* Different forces can be applied to objects (gravity, sliding force, drag, acceleration).
+* Different forces which can be applied to objects (gravity, sliding force, drag, acceleration).
 * Bounding Sphere Collision.
 
 # Controls
@@ -24,7 +24,7 @@ The player can move forwards using a constant velocity or a constant accleration
 * S = UT + 0.5AT^2
 * V = U + AT
 
-This is done through the use a Particle Model.
+This is done through the use a Particle Model (detailed below).
 
 # ParticleModel
 
@@ -73,3 +73,8 @@ For Example:
 
 * However, that were to be 45 degrees, they would fall as if they were sliding down a ramp (or something to that effect). 
 
+# Shader
+
+Also included is a basic shader which takes into account the use of diffuse, ambient and specular lighting. It also oks at specular power and light reflection, as well as texuring and camera 'eye' position. 
+
+Texturing has a basic diffuse texture and linear sampler state.
