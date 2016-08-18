@@ -185,16 +185,16 @@ HRESULT Application::Initialise(HINSTANCE hInstance, int nCmdShow)
 	grass = new GameObject("Grass", grassAppearance, grassTransform, grassParticleModel);
 
 	// ---------------------------------------------------------- Cubes ------------------------------------------------------------------------------
-	Appearance * crateAppearance = new Appearance(cubeGeometry, shinyMaterial);
+	Appearance* crateAppearance = new Appearance(cubeGeometry, shinyMaterial);
 	crateAppearance->SetTextureRV(_pTextureRV);
 
 	for (auto i = 0; i < 5; i++)
 	{
-		Transform * cubeTransform = new Transform();
+		Transform* cubeTransform = new Transform();
 		cubeTransform->SetScale(0.5f, 0.5f, 0.5f);
 		cubeTransform->SetPosition(-4.0f + (i * 2.0f), 0.5f, 10.0f);
 
-		ParticleModel * particleModel = new ParticleModel(cubeTransform);
+		ParticleModel* particleModel = new ParticleModel(cubeTransform);
 
 		GameObject* gameObject = new GameObject("Cube " + i, crateAppearance, cubeTransform, particleModel);
 
@@ -210,14 +210,14 @@ HRESULT Application::Initialise(HINSTANCE hInstance, int nCmdShow)
 	_gameObjects[1]->GetParticleModel()->SetVelocity(cubeVel1);
 
 	// ---------------------------------------------------------- Car ------------------------------------------------------------------------------
-	Transform * carTransform = new Transform();
+	Transform* carTransform = new Transform();
 	carTransform->SetScale(0.05f, 0.05f, 0.05f);
 	carTransform->SetPosition(51.1540947f, 0.8f, -0.812614083f);
 	carTransform->SetRotation(0.0f, 179.0f, 0.0f);
 
 	Geometry carGeometry = OBJLoader::Load("Resources\\Objects\\car.obj", _pd3dDevice, true);
 
-	Appearance * carAppearance = new Appearance(carGeometry, shinyMaterial);
+	Appearance* carAppearance = new Appearance(carGeometry, shinyMaterial);
 	carAppearance->SetTextureRV(_pCarTextureRV);
 
 	CarParticleModel* carPM = new CarParticleModel(carTransform);
@@ -227,14 +227,14 @@ HRESULT Application::Initialise(HINSTANCE hInstance, int nCmdShow)
 
 	// ---------------------------------------------------------- AI Car ------------------------------------------------------------------------------
 
-	Transform * AICarTransform = new Transform();
+	Transform* AICarTransform = new Transform();
 	AICarTransform->SetScale(0.05f, 0.05f, 0.05f);
 	AICarTransform->SetPosition(68.9606628f,0.8,-0.812614083f);
 	AICarTransform->SetRotation(0.0f, 0.0f, 0.0f);
 
 	Geometry AICarGeometry = OBJLoader::Load("Resources\\Objects\\car.obj", _pd3dDevice, true);
 
-	Appearance * AICarAppearance = new Appearance(AICarGeometry, shinyMaterial);
+	Appearance* AICarAppearance = new Appearance(AICarGeometry, shinyMaterial);
 	AICarAppearance->SetTextureRV(_pAICarTextureRV);
 
 	ParticleModel* AIcarPM = new ParticleModel(AICarTransform);
@@ -243,13 +243,13 @@ HRESULT Application::Initialise(HINSTANCE hInstance, int nCmdShow)
 	aiCar->GetParticleModel()->SetCollisionRadius(5.0f);
 
 	// ---------------------------------------------------------- Mountain ------------------------------------------------------------------------------
-	Transform * mountainTransform = new Transform();
+	Transform* mountainTransform = new Transform();
 	mountainTransform->SetPosition(0.0f, 0.0f, 10.0f);
 	mountainTransform->SetScale(0.1f, 0.1f, 0.1f);
 
 	Geometry mountainGeometry = OBJLoader::Load("Resources\\Objects\\mountain.obj", _pd3dDevice, true);
 
-	Appearance * mountainAppearance = new Appearance(mountainGeometry, shinyMaterial);
+	Appearance* mountainAppearance = new Appearance(mountainGeometry, shinyMaterial);
 	mountainAppearance->SetTextureRV(_pTextureRV);
 
 	ParticleModel* mountainParticleModel = new ParticleModel(mountainTransform);
@@ -391,7 +391,7 @@ HRESULT Application::InitVertexBuffer()
     D3D11_BUFFER_DESC bd;
 	ZeroMemory(&bd, sizeof(bd));
     bd.Usage = D3D11_USAGE_DEFAULT;
-    bd.ByteWidth = sizeof(SimpleVertex) * 24;
+    bd.ByteWidth = sizeof(SimpleVertex)* 24;
     bd.BindFlags = D3D11_BIND_VERTEX_BUFFER;
 	bd.CPUAccessFlags = 0;
 
@@ -415,7 +415,7 @@ HRESULT Application::InitVertexBuffer()
 
 	ZeroMemory(&bd, sizeof(bd));
 	bd.Usage = D3D11_USAGE_DEFAULT;
-	bd.ByteWidth = sizeof(SimpleVertex) * 4;
+	bd.ByteWidth = sizeof(SimpleVertex)* 4;
 	bd.BindFlags = D3D11_BIND_VERTEX_BUFFER;
 	bd.CPUAccessFlags = 0;
 
@@ -460,7 +460,7 @@ HRESULT Application::InitIndexBuffer()
 	ZeroMemory(&bd, sizeof(bd));
 
     bd.Usage = D3D11_USAGE_DEFAULT;
-    bd.ByteWidth = sizeof(WORD) * 36;     
+    bd.ByteWidth = sizeof(WORD)* 36;     
     bd.BindFlags = D3D11_BIND_INDEX_BUFFER;
 	bd.CPUAccessFlags = 0;
 
@@ -481,7 +481,7 @@ HRESULT Application::InitIndexBuffer()
 
 	ZeroMemory(&bd, sizeof(bd));
 	bd.Usage = D3D11_USAGE_DEFAULT;
-	bd.ByteWidth = sizeof(WORD) * 6;
+	bd.ByteWidth = sizeof(WORD)* 6;
 	bd.BindFlags = D3D11_BIND_INDEX_BUFFER;
 	bd.CPUAccessFlags = 0;
 
