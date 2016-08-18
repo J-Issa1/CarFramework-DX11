@@ -192,7 +192,7 @@ HRESULT Application::Initialise(HINSTANCE hInstance, int nCmdShow)
 	{
 		Transform* cubeTransform = new Transform();
 		cubeTransform->SetScale(0.5f, 0.5f, 0.5f);
-		cubeTransform->SetPosition(-4.0f + (i * 2.0f), 0.5f, 10.0f);
+		cubeTransform->SetPosition(-4.0f + (i * 2.5f), 8.5f, 10.0f);
 
 		ParticleModel* particleModel = new ParticleModel(cubeTransform);
 
