@@ -67,5 +67,6 @@ Cubes are included to show off the collision and physics system included in the 
 
 Also included on the cubes are sliding force which can be toggled on and off through the use of a boolean. The degree at which the sliding force is applied can be changed by the use of the 'SlidingForce' method. 
 
-For example: Currently when the cubes hit the ground there is a sliding force of 90 degrees applied, meaning they slide horizontally across the ground. However, that were to be 45 degrees, they would fall as if they were sliding down a ramp (or something to that effect). 
+For Example: Currently when the cubes hit the ground there is a sliding force of 90 degrees applied, meaning they slide horizontally across the ground. 
+However, that were to be 45 degrees, they would fall as if they were sliding down a ramp (or something to that effect). 
 
