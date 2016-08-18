@@ -143,7 +143,7 @@ void ParticleModel::SlidingForce(float theta, float frCoef)
 	{
 		slidingForce.x = 0.0f;
 		slidingForce.y = 0.0f;
-		//slidingForce.z = 0.0f;
+		slidingForce.z = 0.0f;
 	}
 
 	// TODO: Check to ensure that magnitude is not negative
@@ -170,7 +170,6 @@ void ParticleModel::MotionInFluid()
 	DragForce();
 
 	//UpdateState();
-	//
 	//Move();
 }
 
